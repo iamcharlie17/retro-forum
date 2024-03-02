@@ -34,7 +34,7 @@
             </li>
             <!--Pen -->
             <li>
-              <div class="tooltip" data-tip="Tooltip">
+              <div class="tooltip" data-tip="Pen">
                 <button class="btn btn-circle btn-outline">
                   <img width="20" height="20" src="https://img.icons8.com/ios/20/pencil--v1.png" alt="pencil--v1" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -44,11 +44,11 @@
             </li>
             <!-- Add Friend -->
             <li>
-              <div class="tooltip" data-tip="Add Friend">
+              <div class="tooltip" data-tip="Add">
                 <button class="btn btn-circle btn-outline">
-                  <img width="32" height="32" src="https://img.icons8.com/windows/32/add-user-group-woman-woman.png"
-                    alt="add-user-group-woman-woman" />
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                <img width="24" height="24"
+                  src="https://img.icons8.com/external-dashed-line-kawalan-studio/24/external-user-plus-users-dashed-line-kawalan-studio.png"
+                  alt="external-user-plus-users-dashed-line-kawalan-studio" />
                   </svg>
                 </button>
               </div>
@@ -73,19 +73,21 @@
     </section>
 
     <!-- banner section -->
-    <section class="banner-container">
-      <div class="hero bg-auto min-h-screen rounded-lg"
-        style="background-image: url(images/bgbanner.png);">
+    <section class="banner-container relative">
+      <div class=" hero bg-auto min-h-screen rounded-lg"
+        >
         <div class="hero-overlay bg-opacity-100 "></div>
+       
         <div class="flex flex-col m-4 lg:m-0 text-center lg:text-start lg:flex-row justify-between items-center gap-10 lg:gap-60 text-neutral-content">
           <!-- banner title and search -->
           <div class="flex flex-col gap-4">
             <h1 class="text-3xl lg:text-5xl font-extrabold">Welcome to the <br><span class="text-indigo-500">ReTro</span> Forum</h1>
             <p>Share your favorite opinion and win and wp forum coffee mug!</p>
             <div>
-              <input id="search-field" type="text" placeholder="Search here anything" class="input max-w-xs rounded-full text-gray-700" />
+              <input id="search-field" type="text" placeholder="Search here anything" class="input max-w-xs rounded-full text-gray-700 z-10" />
               <button onclick="handleSearchButton()" class="btn bg-indigo-500 rounded-full border-none text-white">Search</button>
             </div>
+           
           </div>
           <!-- forum stats -->
           <div>

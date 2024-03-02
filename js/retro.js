@@ -1,16 +1,20 @@
 const loadPosts = async(searchValue) => {
   const res = await fetch(
-    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`
+    `https://openapi.programming-hero.com/api/retro-forum/posts`
   );
+  //?category=${searchValue}
   const data = await res.json();
 
   const allPostsContainer = document.getElementById('all-post-container');
   allPostsContainer.innerHTML = '';
-  
+
   data.posts.forEach(post => {
-    // console.log(post);  
+    // console.log(post);
     const postDiv = document.createElement('div');
-    postDiv.innerHTML = `
+
+    // console.log(post.isActive);
+    if (post.isActive === true) {
+      postDiv.innerHTML = `
     <div class="card w-full bg-base-100 shadow-xl bg-gray-300">
               <!-- post div -->
               <div class="flex pt-8 space-y-0 p-4">
@@ -18,7 +22,59 @@ const loadPosts = async(searchValue) => {
                 <div class="relative">
                   <img src="${post.image}" class="rounded-full h-20 w-20 ">
                   <div class="absolute top-5 z-10">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" fill="currentColor"
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" fill="currentColor" id="status"
+                    class="bi bi-dot relative top-0 left-4 text-green-500 " viewBox="0 0 16 16">
+                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                  </svg>
+                </div>
+            
+                </div>
+                <div class= "space-y-4">
+                  <div class="flex gap-4">
+                    <h2>#${post.category}</h2>
+                    <h2>Author: ${post.author.name}</h2>
+                  </div>
+                  <div>
+                    <h1 id="post-title" class="font-bold text-xl">${post.title}</h1>
+                  </div>
+                  <div>
+                    <p>${post.description}
+                    </p>
+                  </div>
+                  <div class="flex gap-4 mt-4">
+                    <div class="flex gap-1 items-center">
+                      <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/speech-bubble-with-dots.png"
+                        alt="speech-bubble-with-dots" />
+                      <p>${post.comment_count}</p>
+                    </div>
+                    <div class="flex gap-1 items-center">
+                      <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/visible.png" alt="visible" />
+                      <p id="view-count">${post.view_count}</p>
+                    </div>
+                    <div class="flex gap-1 items-center">
+                      <img width="30" height="30" src="https://img.icons8.com/forma-thin/24/clock.png" alt="clock" />
+                      <p>${post.posted_time} min</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-end m-4">
+                <button id="read-button-" onclick ="handleReadButton()" class="p-2 bg-green-500 rounded-full">
+                  <img width="24" height="24" src="https://img.icons8.com/forma-thin/24/open-envelope.png" alt="open-envelope" />
+                </button>
+              </div>
+            </div>
+    `;
+    } else {
+      postDiv.innerHTML = `
+    <div class="card w-full bg-base-100 shadow-xl bg-gray-300">
+              <!-- post div -->
+              <div class="flex pt-8 space-y-0 p-4">
+                <!-- profile pic and active status -->
+                <div class="relative">
+                  <img src="${post.image}" class="rounded-full h-20 w-20 ">
+                  <div class="absolute top-5 z-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" fill="currentColor" id="status"
                     class="bi bi-dot relative top-0 left-4 text-red-500 " viewBox="0 0 16 16">
                     <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
                   </svg>
@@ -61,6 +117,8 @@ const loadPosts = async(searchValue) => {
               </div>
             </div>
     `;
+    }
+
     allPostsContainer.appendChild(postDiv);
   });
 }
@@ -125,27 +183,20 @@ const readContainer = document.getElementById('selection-container');
 let count = 0;
 
 
-const handleReadButton = () => {
-  const selectionDiv = document.createElement('div');
-  selectionDiv.innerHTML = `
-  <div class="flex items-center gap-2 bg-white rounded-lg p-2">
-            <h1 class="font-bold">${document.getElementById('post-title').innerText}</h1>
-            <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/visible.png" alt="visible" />
-            <p>${document.getElementById('view-count').innerText}</p>
-          </div>
-  `;
+const handleReadButton = async () => {
+  
 
+  const selectionDiv = document.createElement('div');
+  
   
   readContainer.appendChild(selectionDiv);
   count++;
   const countContainer = document.getElementById('count-container');
   countContainer.innerText = count;
 
-  const readButton = document.getElementById('read-button').parentElement.parentElement;
-  console.log(readButton);
 }
 
 
 
-
+loadPosts();
 loadLatestPosts();
