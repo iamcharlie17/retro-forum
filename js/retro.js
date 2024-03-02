@@ -1,8 +1,8 @@
 const loadPosts = async(searchValue) => {
   const res = await fetch(
-    `https://openapi.programming-hero.com/api/retro-forum/posts`
+    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`
   );
-  //?category=${searchValue}
+  
   const data = await res.json();
 
   const allPostsContainer = document.getElementById('all-post-container');
@@ -185,9 +185,19 @@ let count = 0;
 
 const handleReadButton = async () => {
   
-
   const selectionDiv = document.createElement('div');
-  
+  selectionDiv.innerHTML = `
+  <div class="flex items-center gap-2 bg-white rounded-lg p-2">
+            <h1 class="font-bold">10 Kids Unaware of Their Halloween Costume</h1>
+            <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/visible.png" alt="visible" />
+            <p>1560</p>
+          </div>
+  `;
+
+  const readButton = document.getElementById('read-button');
+  console.log(readButton.parentElement.parentElement);
+  console.log(document.getElementById('post-title').innerText)
+  console.log(document.getElementById('view-count').innerText)
   
   readContainer.appendChild(selectionDiv);
   count++;
@@ -198,5 +208,5 @@ const handleReadButton = async () => {
 
 
 
-loadPosts();
+loadPosts('coding');
 loadLatestPosts();
