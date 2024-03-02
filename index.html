@@ -83,8 +83,8 @@
             <h1 class="text-3xl lg:text-5xl font-extrabold">Welcome to the <br><span class="text-indigo-500">ReTro</span> Forum</h1>
             <p>Share your favorite opinion and win and wp forum coffee mug!</p>
             <div>
-              <input id="search-field" type="text" placeholder="Search here anything" class="input max-w-xs rounded-full" />
-              <button class="btn bg-indigo-500 rounded-full border-none text-white">Search</button>
+              <input id="search-field" type="text" placeholder="Search here anything" class="input max-w-xs rounded-full text-gray-700" />
+              <button onclick="handleSearchButton()" class="btn bg-indigo-500 rounded-full border-none text-white">Search</button>
             </div>
           </div>
           <!-- forum stats -->
@@ -131,14 +131,14 @@
           <!-- all post container -->
           <div id="all-post-container" class="space-y-12">
             <!-- card appended child -->
-           
+          
           </div>
         
         <!-- selection container -->
         <div id="selection-container" class="card w-full lg:w-1/3 bg-base-100 shadow-xl p-4 space-y-4 bg-gray-300 ">
           <div class="flex justify-between">
             <h1 class="text-xl font-bold">Title</h1>
-            <h2>Marked as read (<span>0</span>)</h2>
+            <h2>Marked as read (<span id="count-container">0</span>)</h2>
           </div>
           <!-- appended child -->
           <div class="flex items-center gap-2 bg-white rounded-lg p-2">
