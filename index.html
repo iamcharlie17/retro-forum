@@ -124,10 +124,10 @@
         streamlined .</p>
       </div>
       <!-- posts section-->
-      <div class=" flex gap-4 flex-col-reverse lg:flex-row my-10">
+      <div class=" flex justify-between flex-col-reverse lg:flex-row my-10 max-w-screen-2xl gap-4 ">
       
           <!-- all post container -->
-          <div id="all-post-container" class="space-y-8">
+          <div id="all-post-container" class="space-y-12">
             <!-- card appended child -->
             <div class="card w-full bg-base-100 shadow-xl bg-gray-300">
               <!-- post div -->
@@ -168,6 +168,11 @@
                       <p>5 min</p>
                     </div>
                   </div>
+                  <div class="flex justify-end">
+                    <button class="p-2 bg-green-500 rounded-full">
+                      <img width="24" height="24" src="https://img.icons8.com/forma-thin/24/open-envelope.png" alt="open-envelope" />
+                    </button>
+                  </div>
                 </div>
             
               </div>
@@ -189,10 +194,77 @@
         </div>
       </div>
         
-      
+    </section>
+
+    <!-- join forum section -->
+    <section class="w-full my-16">
+        <div class="flex flex-col lg:flex-row text-center lg:text-start bg-indigo-950 rounded-2xl p-8 justify-around items-center gap-16">
+          <div class="space-y-8">
+            <h1 class="text-white text-4xl font-extrabold">Join Our Forum</h1>
+            <p class="text-white">Share your favorite opinion and win and wp forum coffee mug! Yes, you can run unit tests and view the results
+              directly
+              within the app.</p>
+            <button class="btn bg-indigo-500 text-white rounded-full border-none">Registered Now</button>
+          </div>
+          <div>
+            <img src="images/joinforum.png" alt="">
+          </div>
+        </div>
+    </section>
+
+    <!-- latest posts section -->
+    <section>
+      <!-- latest post title-->
+      <div class="space-y-4 text-center">
+        <h1 class="text-black text-3xl font-bold">Latest Posts</h1>
+        <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for
+          a
+          streamlined .</p>
+      </div>
+      <!-- latest post container -->
+      <div id="latest-post-container" class="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
+        <!-- latest post will be appended (card) -->
+        <div class="card  bg-base-100 shadow-xl ">
+          <figure class="px-10 pt-10">
+            <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
+          </figure>
+          <div class="card-body ">
+           <div class="flex gap-4">
+            <img width="20" height="20"
+              src="https://img.icons8.com/external-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto/64/external-calender-time-and-date-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto.png"
+              alt="external-calender-time-and-date-yogi-aprelliyanto-basic-outline-yogi-aprelliyanto" />
+            <p>14 september, 2020</p>
+           </div>
+           <h1 class="font-bold lg:text-xl">What will a mars habitat force that impact in our daily life!!!</h1>
+           <p>Yes, you can run unit tests and view the results directly within the app.</p>
+           <div class="flex gap-4 items-center">
+            <img src="images/demo.jpg" class="h-20 w-20 rounded-full">
+            <div class="space-y-2 ">
+                <h1 class="font-bold">Cameron Williamson</h1>
+                <p>Unknown</p>
+            </div>
+           </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer></footer>
+  <footer>
+      <!-- footer section -->
+      <section class="mt-8 p-16 flex flex-col justify-center items-center space-y-8 lg:space-y-12 bg-slate-200">
+        <h1 class="text-4xl font-bold text-indigo-900">ReTro</h1>
+        <p class="lg:px-24 text-center">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature
+        from 45 BC</p>
+        <!-- social icons -->
+        <div class="flex gap-4">
+          <a href="#"><img width="20" height="20" src="https://img.icons8.com/ios/50/twitter--v1.png" alt="twitter--v1" /></a>
+          <a href="#"><img width="20" height="20" src="https://img.icons8.com/ios/50/facebook-new.png" alt="facebook-new" /></a>
+          <a href="#"><img width="20" height="20" src="https://img.icons8.com/ios/50/instagram-new--v1.png" alt="instagram-new--v1" /></a>
+          <a href="#"><img width="20" height="20" src="https://img.icons8.com/ios/50/github--v1.png" alt="github--v1" /></a>
+        </div>
+        <p>2017, All Rights Reserved.</p>
+      </section>
+  </footer>
 
   <script src="js/retro.js"></script>
 </body>
