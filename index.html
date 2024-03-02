@@ -8,6 +8,8 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.tailwindcss.com"></script>
 
+  
+
 </head>
 
 <body class="container mx-auto">
@@ -71,7 +73,7 @@
     </section>
 
     <!-- banner section -->
-    <section class="">
+    <section class="banner-container">
       <div class="hero bg-auto min-h-screen rounded-lg"
         style="background-image: url(images/bgbanner.png);">
         <div class="hero-overlay bg-opacity-100 "></div>
@@ -81,7 +83,7 @@
             <h1 class="text-3xl lg:text-5xl font-extrabold">Welcome to the <br><span class="text-indigo-500">ReTro</span> Forum</h1>
             <p>Share your favorite opinion and win and wp forum coffee mug!</p>
             <div>
-              <input type="text" placeholder="Type here" class="input max-w-xs rounded-full" />
+              <input id="search-field" type="text" placeholder="Search here anything" class="input max-w-xs rounded-full" />
               <button class="btn bg-indigo-500 rounded-full border-none text-white">Search</button>
             </div>
           </div>
@@ -129,54 +131,7 @@
           <!-- all post container -->
           <div id="all-post-container" class="space-y-12">
             <!-- card appended child -->
-            <div class="card w-full bg-base-100 shadow-xl bg-gray-300">
-              <!-- post div -->
-              <div class="flex  space-y-4 p-4">
-                <!-- profile pic and active status -->
-                <div class="">
-                  <img src="images/demo.jpg" class="rounded-full h-20 w-20 ">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" fill="currentColor"
-                    class="bi bi-dot relative top-1 " viewBox="0 0 16 16">
-                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                  </svg>
-            
-                </div>
-                <div>
-                  <div class="flex gap-4">
-                    <h2>#Music</h2>
-                    <h2>Author: Awlad Hossain</h2>
-                  </div>
-                  <div>
-                    <h1 class="font-bold text-xl">10 Kids Unaware of Their Halloween Costume</h1>
-                  </div>
-                  <div>
-                    <p>It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative
-                    </p>
-                  </div>
-                  <div class="flex gap-4">
-                    <div class="flex gap-4 items-center">
-                      <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/speech-bubble-with-dots.png"
-                        alt="speech-bubble-with-dots" />
-                      <p>560</p>
-                    </div>
-                    <div class="flex gap-4 items-center">
-                      <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/visible.png" alt="visible" />
-                      <p>1560</p>
-                    </div>
-                    <div class="flex gap-4 items-center">
-                      <img width="30" height="30" src="https://img.icons8.com/forma-thin/24/clock.png" alt="clock" />
-                      <p>5 min</p>
-                    </div>
-                  </div>
-                  <div class="flex justify-end">
-                    <button class="p-2 bg-green-500 rounded-full">
-                      <img width="24" height="24" src="https://img.icons8.com/forma-thin/24/open-envelope.png" alt="open-envelope" />
-                    </button>
-                  </div>
-                </div>
-            
-              </div>
-            </div>
+           
           </div>
         
         <!-- selection container -->
@@ -222,9 +177,9 @@
           streamlined .</p>
       </div>
       <!-- latest post container -->
-      <div id="latest-post-container" class="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
+      <div id="latest-posts-container" class="grid grid-cols-1 lg:grid-cols-3 gap-4 ">
         <!-- latest post will be appended (card) -->
-        <div class="card  bg-base-100 shadow-xl ">
+        <!-- <div class="card  bg-base-100 shadow-xl ">
           <figure class="px-10 pt-10">
             <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
           </figure>
@@ -245,7 +200,7 @@
             </div>
            </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
   </main>
