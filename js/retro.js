@@ -6,7 +6,6 @@ const loadPosts = async (searchValue) => {
   );
   
   const data = await res.json();
-
   
 
   const allPostsContainer = document.getElementById('all-post-container');
@@ -23,13 +22,13 @@ const loadPosts = async (searchValue) => {
       postDiv.innerHTML = `
     <div class="card w-full bg-base-100 shadow-xl bg-gray-300">
               <!-- post div -->
-              <div class="flex pt-8 space-y-0 p-4">
+              <div class="flex gap-4 pt-8 space-y-0 lg:p-4">
                 <!-- profile pic and active status -->
                 <div class="relative">
-                  <img src="${post.image}" class="rounded-full h-20 w-20 ">
+                  <img src="${post.image}" class="rounded-lg  h-20 w-20 ">
                   <div class="absolute top-5 z-10">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" fill="currentColor" id="status"
-                    class="bi bi-dot relative top-0 left-4 text-green-500 " viewBox="0 0 16 16">
+                    class="bi bi-dot relative top-0 lg:left-8 text-green-500 " viewBox="0 0 16 16">
                     <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
                   </svg>
                 </div>
@@ -75,13 +74,13 @@ const loadPosts = async (searchValue) => {
       postDiv.innerHTML = `
     <div class="card w-full bg-base-100 shadow-xl bg-gray-300">
               <!-- post div -->
-              <div class="flex pt-8 space-y-0 p-4">
+              <div class="flex gap-4 pt-8 space-y-0 lg:p-4">
                 <!-- profile pic and active status -->
                 <div class="relative">
-                  <img src="${post.image}" class="rounded-full h-20 w-20 ">
+                  <img src="${post.image}" class="rounded-lg h-20 w-20 ">
                   <div class="absolute top-5 z-10">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" fill="currentColor" id="status"
-                    class="bi bi-dot relative top-0 left-4 text-red-500 " viewBox="0 0 16 16">
+                    class="bi bi-dot relative top-0 lg:left-8 text-red-500 " viewBox="0 0 16 16">
                     <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
                   </svg>
                 </div>
@@ -194,21 +193,20 @@ const readContainer = document.getElementById('selection-container');
 let count = 0;
 
 
-const handleReadButton = async () => {
+const handleReadButton = () => {
+  
+ 
   
   const selectionDiv = document.createElement('div');
   selectionDiv.innerHTML = `
-  <div class="flex items-center gap-2 bg-white rounded-lg p-2">
-            <h1 class="font-bold">10 Kids Unaware of Their Halloween Costume</h1>
-            <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/visible.png" alt="visible" />
-            <p>1560</p>
+  <div class="flex justify-between items-center gap-2 bg-white rounded-lg p-2">
+            <h1 class="font-bold">post title</h1>
+            <div class ="flex gap-2">
+              <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/visible.png" alt="visible" />
+              <p>post view count</p>
+            </div>
           </div>
   `;
-
-  const readButton = document.getElementById('read-button');
-  console.log(readButton.parentElement.parentElement);
-  console.log(document.getElementById('post-title').innerText)
-  console.log(document.getElementById('view-count').innerText)
   
   readContainer.appendChild(selectionDiv);
   count++;
@@ -227,6 +225,7 @@ const handleLoader = (isLoading) => {
   else {
     loadingSpinner.classList.add('hidden');
   }
+  
 }
 
 
@@ -234,3 +233,6 @@ handleLoader(true);
 
 loadPosts('coding');
 loadLatestPosts();
+
+
+
