@@ -1,6 +1,7 @@
 
 
 const loadPosts = async (searchValue) => {
+  
   const res = await fetch(
     `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`
   );
@@ -12,10 +13,10 @@ const loadPosts = async (searchValue) => {
   allPostsContainer.innerHTML = '';
 
   data.posts.forEach(post => {
-    // console.log(post);
+    console.log(post);
     const postDiv = document.createElement('div');
 
-    
+    console.log(post.title.replace);
 
     // console.log(post.isActive);
     if (post.isActive === true) {
@@ -64,7 +65,7 @@ const loadPosts = async (searchValue) => {
                 </div>
               </div>
               <div class="flex justify-end m-4">
-                <button id="read-button-" onclick ="handleReadButton()" class="p-2 bg-green-500 rounded-full">
+                <button id="read-button-" onclick ="handleReadButton(${post.view_count},&quot;${post.title}&quot;)" class="p-2 bg-green-500 rounded-full">
                   <img width="24" height="24" src="https://img.icons8.com/forma-thin/24/open-envelope.png" alt="open-envelope" />
                 </button>
               </div>
@@ -116,7 +117,7 @@ const loadPosts = async (searchValue) => {
                 </div>
               </div>
               <div class="flex justify-end m-4">
-                <button id="read-button" onclick ="handleReadButton()" class="p-2 bg-green-500 rounded-full">
+                <button id="read-button" onclick ="handleReadButton(${post.view_count},&quot;${post.title}&quot;)" class="p-2 bg-green-500 rounded-full">
                   <img width="24" height="24" src="https://img.icons8.com/forma-thin/24/open-envelope.png" alt="open-envelope" />
                 </button>
               </div>
@@ -193,17 +194,17 @@ const readContainer = document.getElementById('selection-container');
 let count = 0;
 
 
-const handleReadButton = () => {
+const handleReadButton = (view_count,title) => {
   
  
-  
+  console.log(view_count,title);
   const selectionDiv = document.createElement('div');
   selectionDiv.innerHTML = `
   <div class="flex justify-between items-center gap-2 bg-white rounded-lg p-2">
-            <h1 class="font-bold">post title</h1>
-            <div class ="flex gap-2">
+            <h1 class="font-bold">${title}</h1>
+            <div class ="flex pr-4">
               <img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/visible.png" alt="visible" />
-              <p>post view count</p>
+              <p>${view_count}</p>
             </div>
           </div>
   `;
