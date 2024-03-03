@@ -1,9 +1,13 @@
-const loadPosts = async(searchValue) => {
+
+
+const loadPosts = async (searchValue) => {
   const res = await fetch(
     `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchValue}`
   );
   
   const data = await res.json();
+
+  
 
   const allPostsContainer = document.getElementById('all-post-container');
   allPostsContainer.innerHTML = '';
@@ -11,6 +15,8 @@ const loadPosts = async(searchValue) => {
   data.posts.forEach(post => {
     // console.log(post);
     const postDiv = document.createElement('div');
+
+    
 
     // console.log(post.isActive);
     if (post.isActive === true) {
@@ -121,6 +127,9 @@ const loadPosts = async(searchValue) => {
 
     allPostsContainer.appendChild(postDiv);
   });
+  // hide loading spinner--
+  handleLoader(false);
+  
 }
 
 
@@ -174,6 +183,8 @@ const loadLatestPosts = async () => {
 
 
 const handleSearchButton = () => {
+  handleLoader(true);
+
   const searchValue = document.getElementById('search-field').value;
   console.log(searchValue);
   loadPosts(searchValue);
@@ -207,6 +218,19 @@ const handleReadButton = async () => {
 }
 
 
+// handle loader--
+const handleLoader = (isLoading) => {
+  const loadingSpinner = document.getElementById('loading-spinner');
+  if (isLoading) {
+    loadingSpinner.classList.remove('hidden');
+  }
+  else {
+    loadingSpinner.classList.add('hidden');
+  }
+}
+
+
+handleLoader(true);
 
 loadPosts('coding');
 loadLatestPosts();
