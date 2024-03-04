@@ -13,14 +13,15 @@ const loadPosts = async (searchValue) => {
   allPostsContainer.innerHTML = '';
 
   data.posts.forEach(post => {
-    console.log(post);
+    // console.log(post);
     const postDiv = document.createElement('div');
 
-    console.log(post.title.replace);
+    
 
     // console.log(post.isActive);
-    if (post.isActive === true) {
-      postDiv.innerHTML = `
+    setTimeout(() => {
+      if (post.isActive === true) {
+        postDiv.innerHTML = `
     <div class="card w-full bg-base-100 shadow-xl bg-gray-300">
               <!-- post div -->
               <div class="flex gap-4 pt-8 space-y-0 lg:p-4">
@@ -71,8 +72,8 @@ const loadPosts = async (searchValue) => {
               </div>
             </div>
     `;
-    } else {
-      postDiv.innerHTML = `
+      } else {
+        postDiv.innerHTML = `
     <div class="card w-full bg-base-100 shadow-xl bg-gray-300">
               <!-- post div -->
               <div class="flex gap-4 pt-8 space-y-0 lg:p-4">
@@ -123,13 +124,17 @@ const loadPosts = async (searchValue) => {
               </div>
             </div>
     `;
-    }
+      }
+    }, 2000);
 
     allPostsContainer.appendChild(postDiv);
+    
   });
   // hide loading spinner--
-  handleLoader(false);
   
+  setTimeout(() => {
+    handleLoader(false);
+  }, 2000);
 }
 
 
